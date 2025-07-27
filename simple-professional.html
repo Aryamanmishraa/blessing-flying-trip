@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blessing Flying Trip - Professional Visa & Passport Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
+            color: #1f2937;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: #3b82f6;
+        }
+
+        .cta-button {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-title .highlight {
+            color: #3b82f6;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-secondary:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .service-features li {
+            color: #6b7280;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .service-btn {
+            background: #f3f4f6;
+            color: #3b82f6;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .service-btn:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Countries Section */
+        .countries {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .country-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .country-item:hover {
+            border-color: #3b82f6;
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            background: #f8fafc;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact-details {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .contact-card:hover .contact-details {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .footer-text {
+            color: #9ca3af;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">✈️</span>
+                    <span>Blessing Flying Trip</span>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#countries">Countries</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <a href="#contact" class="cta-button">Get Started</a>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Professional <span class="highlight">Visa & Passport</span> Services
+                </h1>
+                <p class="hero-subtitle">
+                    Your trusted partner for seamless international travel. We provide expert visa and passport services for all countries worldwide with guaranteed success rates.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">195+</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15,000+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Explore Services</a>
+                    <a href="#contact" class="btn btn-secondary">Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">
+                    Comprehensive visa and passport solutions tailored to your travel needs
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🌍</span>
+                    <h3 class="service-title">Tourist Visa</h3>
+                    <p class="service-description">
+                        Complete tourist visa processing for leisure travel worldwide with expert documentation support.
+                    </p>
+                    <ul class="service-features">
+                        <li>All countries covered</li>
+                        <li>Document preparation</li>
+                        <li>Application tracking</li>
+                        <li>24/7 support</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">💼</span>
+                    <h3 class="service-title">Business Visa</h3>
+                    <p class="service-description">
+                        Professional business visa services for corporate travel and international business expansion.
+                    </p>
+                    <ul class="service-features">
+                        <li>Corporate solutions</li>
+                        <li>Multiple entry options</li>
+                        <li>Priority processing</li>
+                        <li>Business consultation</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🎓</span>
+                    <h3 class="service-title">Student Visa</h3>
+                    <p class="service-description">
+                        Educational visa assistance for students pursuing academic opportunities abroad.
+                    </p>
+                    <ul class="service-features">
+                        <li>University partnerships</li>
+                        <li>Document verification</li>
+                        <li>Interview preparation</li>
+                        <li>Post-arrival support</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🏥</span>
+                    <h3 class="service-title">Medical Visa</h3>
+                    <p class="service-description">
+                        Specialized medical visa services for healthcare treatments and medical emergencies abroad.
+                    </p>
+                    <ul class="service-features">
+                        <li>Medical documentation</li>
+                        <li>Hospital coordination</li>
+                        <li>Emergency processing</li>
+                        <li>Family visa support</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">📘</span>
+                    <h3 class="service-title">Passport Services</h3>
+                    <p class="service-description">
+                        Complete passport application, renewal, and emergency services with professional guidance.
+                    </p>
+                    <ul class="service-features">
+                        <li>New applications</li>
+                        <li>Passport renewal</li>
+                        <li>Emergency passport</li>
+                        <li>Express service</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🚁</span>
+                    <h3 class="service-title">Transit Visa</h3>
+                    <p class="service-description">
+                        Efficient transit visa processing for layovers and connecting flights worldwide.
+                    </p>
+                    <ul class="service-features">
+                        <li>Airport transit</li>
+                        <li>Multiple destinations</li>
+                        <li>Quick processing</li>
+                        <li>Travel planning</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section id="countries" class="countries">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Countries We Serve</h2>
+                <p class="section-subtitle">
+                    Professional visa services for all major destinations worldwide
+                </p>
+            </div>
+
+            <div class="countries-grid">
+                <div class="country-item">🇺🇸 United States</div>
+                <div class="country-item">🇬🇧 United Kingdom</div>
+                <div class="country-item">🇨🇦 Canada</div>
+                <div class="country-item">🇦🇺 Australia</div>
+                <div class="country-item">🇩🇪 Germany</div>
+                <div class="country-item">🇫🇷 France</div>
+                <div class="country-item">🇮🇹 Italy</div>
+                <div class="country-item">🇪🇸 Spain</div>
+                <div class="country-item">🇯🇵 Japan</div>
+                <div class="country-item">🇰🇷 South Korea</div>
+                <div class="country-item">🇸🇬 Singapore</div>
+                <div class="country-item">🇦🇪 UAE</div>
+                <div class="country-item">🇸🇦 Saudi Arabia</div>
+                <div class="country-item">🇹🇭 Thailand</div>
+                <div class="country-item">🇲🇾 Malaysia</div>
+                <div class="country-item">🇳🇱 Netherlands</div>
+                <div class="country-item">🇸🇪 Sweden</div>
+                <div class="country-item">🇳🇴 Norway</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">
+                    Get in touch with our expert team for personalized visa consultation
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <span class="contact-icon">📞</span>
+                    <h3 class="contact-title">Phone</h3>
+                    <div class="contact-details">
+                        +1 (555) 123-4567<br>
+                        Available 24/7
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <span class="contact-icon">✉️</span>
+                    <h3 class="contact-title">Email</h3>
+                    <div class="contact-details">
+                        info@blessingflyingtrip.com<br>
+                        Quick response guaranteed
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <span class="contact-icon">📍</span>
+                    <h3 class="contact-title">Office</h3>
+                    <div class="contact-details">
+                        123 Business Center<br>
+                        New York, NY 10001
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <span class="contact-icon">🕒</span>
+                    <h3 class="contact-title">Hours</h3>
+                    <div class="contact-details">
+                        Mon-Fri: 9AM-7PM<br>
+                        Sat-Sun: 10AM-5PM
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    ✈️ Blessing Flying Trip
+                </div>
+                <div class="footer-text">
+                    © 2025 Blessing Flying Trip. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
